@@ -1,0 +1,59 @@
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px 0 0 0;
+  color: $grey-color;
+
+  &__input {
+    display: flex;
+    background-color: $white-color;
+    height: 100px;
+    width: 100%;
+
+    &-loupe {
+      display: flex;
+      height: 100px;
+      width: 100px;
+
+      &-icon {
+        margin: auto;
+        font-size: 2.5em;
+      }
+    }
+
+    &-field {
+      height: 100px;
+      font-size: 1.5em;
+      border: none;
+      width: 100%;
+
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+
+  &__btn {
+    height: 100px;
+    width: 300px;
+    background-color: $blue-color;
+    border: none;
+    border-radius: 0 90px 0 0;
+    text-align: left;
+    padding: 0 20px;
+    transition: border-radius 0.3s;
+
+    &:hover {
+      transition-timing-function: ease-in-out;
+      cursor: pointer;
+      border-radius: 0 30px 0 0;
+    }
+
+    &-text {
+      font-size: 2em;
+      font-weight: 700;
+      color: $white-color;
+    }
+  }
+}

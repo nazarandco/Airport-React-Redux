@@ -1,0 +1,64 @@
+.flight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: $text-dark-color;
+  font-size: 1.1em;
+  z-index: 1;
+
+  &__details {
+    color: transparent;
+    z-index: -4;
+  }
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: $flight-shadow;
+    z-index: 2;
+  }
+
+  &:hover > &__details {
+    color: $blue-color;
+    z-index: 4;
+  }
+
+  &__block {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin: auto;
+    padding: 0.75em;
+    font-weight: 400;
+
+    &-terminal {
+      width: 45px;
+      height: 45px;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      border: 1px solid $flight-green-color;
+      border-radius: 50%;
+
+      &-text {
+        color: $flight-green-color;
+        margin: auto;
+      }
+    }
+
+    &-airline {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+      &-logo {
+        max-width: 40%;
+        max-height: 35%;
+        padding-right: 3px;
+      }
+
+      &-name {
+        font-size: 0.9em;
+      }
+    }
+  }
+}

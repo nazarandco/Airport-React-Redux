@@ -1,0 +1,22 @@
+.info {
+  height: 130px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  background-color: $white-color;
+
+  &__block {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0.75em;
+    font-size: 1.1em;
+    font-weight: 400;
+    color: $grey-color;
+
+    &-terminal {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

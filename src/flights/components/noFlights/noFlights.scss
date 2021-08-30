@@ -1,0 +1,13 @@
+.no-flights {
+  min-height: 300px;
+  width: 100%;
+  display: flex;
+  background-color: $white-color;
+  font-size: 30px;
+  font-weight: 700;
+
+  &__text {
+    color: $no-flights-text-color;
+    margin: auto;
+  }
+}
