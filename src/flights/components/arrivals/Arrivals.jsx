@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Flight from '../flight/Flight.jsx';
 import Info from '../info/Info.jsx';
-import NoFlights from '../noFlights/NoFlights';
-import { formatMinutes } from '../../flightsDateUtils.js';
+import NoFlights from '../noFlights/NoFlights.jsx';
+import { formatMinutes } from '../../flightsDateUtils';
 
 const Arrivals = ({ flights, toggleFlightDirection, searchData }) => (
   <div className='arrivals'>

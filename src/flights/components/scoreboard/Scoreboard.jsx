@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Departures from '../departures/Departures';
-import Arrivals from '../arrivals/Arrivals';
+import Departures from '../departures/Departures.jsx';
+import Arrivals from '../arrivals/Arrivals.jsx';
 import * as flightsActions from '../../flights.actions';
 import * as flightsSelectors from '../../flights.selectors';
 
@@ -18,39 +18,30 @@ const Scoreboard = ({
 }) => {
   useEffect(() => getFlightsList(), []);
 
+  const isFlightsList = (flights, flightsList) =>
+    flightsList === null ? flights : flightsList;
+
   return (
     <div className='scoreboard'>
       <BrowserRouter>
         <Switch>
           <Route exact path='/'>
             <Departures
-              flights={
-                departureFlightsList === null
-                  ? departureFlights
-                  : departureFlightsList
-              }
+              flights={isFlightsList(departureFlights, departureFlightsList)}
               toggleFlightDirection={toggleFlightDirection}
               searchData={searchData}
             />
           </Route>
           <Route path='/departures'>
             <Departures
-              flights={
-                departureFlightsList === null
-                  ? departureFlights
-                  : departureFlightsList
-              }
+              flights={isFlightsList(departureFlights, departureFlightsList)}
               toggleFlightDirection={toggleFlightDirection}
               searchData={searchData}
             />
           </Route>
           <Route path='/arrivals'>
             <Arrivals
-              flights={
-                arrivalFlightsList === null
-                  ? arrivalFlights
-                  : arrivalFlightsList
-              }
+              flights={isFlightsList(arrivalFlights, arrivalFlightsList)}
               toggleFlightDirection={toggleFlightDirection}
               searchData={searchData}
             />
