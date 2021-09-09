@@ -2,7 +2,6 @@ import * as flightsGateway from './flightsGateway';
 
 export const LIST_RECIEVED = 'FLIGHTS/LIST_RECIEVED';
 export const UPDATE_FILTER = 'FLIGHTS/UPDATE_FILTER';
-export const TOGGLE_FLIGHT_DIRECTION = 'FLIGHTS/TOGGLE_FLIGHT_DIRECTION';
 export const UPDATE_SEARCH_DATA = 'FLIGHTS/UPDATE_SEARCH_DATA';
 
 export const updateFilter = (filterText) => ({
@@ -16,13 +15,6 @@ export const flightsListRecieved = (flightsList) => ({
   type: LIST_RECIEVED,
   payload: {
     flightsList,
-  },
-});
-
-export const toggleFlightDirection = (flightDirection) => ({
-  type: TOGGLE_FLIGHT_DIRECTION,
-  payload: {
-    newFlightDirection: flightDirection,
   },
 });
 

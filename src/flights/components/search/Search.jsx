@@ -4,9 +4,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as flightsActions from '../../flights.actions';
 import { currentDate } from '../../flightsDateUtils';
-import { flightDirectionSelector } from '../../flights.selectors';
 
-const Search = ({ updateFilter, flightDirection, updateSearchData }) => {
+const Search = ({ updateFilter, updateSearchData }) => {
   const [input, setInput] = useState('');
   const urlSearchParams = new URLSearchParams(window.location.search);
   const searchParam = urlSearchParams.get('search');
@@ -38,8 +37,8 @@ const Search = ({ updateFilter, flightDirection, updateSearchData }) => {
       <Link
         to={
           input
-            ? `/${flightDirection}?date=${currentDate}&search=${input}`
-            : `/${flightDirection}`
+            ? `${window.location.pathname}?date=${currentDate}&search=${input}`
+            : `${window.location.pathname}`
         }
       >
         <button
@@ -61,7 +60,6 @@ const Search = ({ updateFilter, flightDirection, updateSearchData }) => {
 Search.propTypes = {
   updateFilter: PropTypes.func.isRequired,
   updateSearchData: PropTypes.func.isRequired,
-  flightDirection: PropTypes.string.isRequired,
 };
 
 const mapDispatch = {
@@ -69,8 +67,4 @@ const mapDispatch = {
   updateSearchData: flightsActions.updateSearchData,
 };
 
-const mapState = (state) => ({
-  flightDirection: flightDirectionSelector(state),
-});
-
-export default connect(mapState, mapDispatch)(Search);
+export default connect(null, mapDispatch)(Search);

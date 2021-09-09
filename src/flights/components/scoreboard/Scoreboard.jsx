@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Departures from '../departures/Departures.jsx';
-import Arrivals from '../arrivals/Arrivals.jsx';
+import Direction from '../direction/Direction.jsx';
 import * as flightsActions from '../../flights.actions';
 import * as flightsSelectors from '../../flights.selectors';
 
@@ -13,9 +12,15 @@ const Scoreboard = ({
   departureFlights,
   departureFlightsList,
   arrivalFlightsList,
-  toggleFlightDirection,
   searchData,
 }) => {
+  const path =
+    window.location.pathname === '/'
+      ? 'departures'
+      : window.location.pathname.substring(1);
+
+  const [urlDirection, setUrlDirection] = useState(path);
+
   useEffect(() => getFlightsList(), []);
 
   const isFlightsList = (flights, flightsList) =>
@@ -26,24 +31,27 @@ const Scoreboard = ({
       <BrowserRouter>
         <Switch>
           <Route exact path='/'>
-            <Departures
+            <Direction
               flights={isFlightsList(departureFlights, departureFlightsList)}
-              toggleFlightDirection={toggleFlightDirection}
               searchData={searchData}
+              urlDirection={urlDirection}
+              setUrlDirection={setUrlDirection}
             />
           </Route>
           <Route path='/departures'>
-            <Departures
+            <Direction
               flights={isFlightsList(departureFlights, departureFlightsList)}
-              toggleFlightDirection={toggleFlightDirection}
               searchData={searchData}
+              urlDirection={urlDirection}
+              setUrlDirection={setUrlDirection}
             />
           </Route>
           <Route path='/arrivals'>
-            <Arrivals
+            <Direction
               flights={isFlightsList(arrivalFlights, arrivalFlightsList)}
-              toggleFlightDirection={toggleFlightDirection}
               searchData={searchData}
+              urlDirection={urlDirection}
+              setUrlDirection={setUrlDirection}
             />
           </Route>
         </Switch>
@@ -55,7 +63,6 @@ const Scoreboard = ({
 Scoreboard.propTypes = {
   getFlightsList: PropTypes.func.isRequired,
   searchData: PropTypes.string.isRequired,
-  toggleFlightDirection: PropTypes.func.isRequired,
   arrivalFlights: PropTypes.arrayOf(PropTypes.shape()),
   departureFlights: PropTypes.arrayOf(PropTypes.shape()),
   departureFlightsList: PropTypes.arrayOf(PropTypes.shape()),
@@ -64,7 +71,6 @@ Scoreboard.propTypes = {
 
 const mapDispatch = {
   getFlightsList: flightsActions.getFlightsList,
-  toggleFlightDirection: flightsActions.toggleFlightDirection,
 };
 
 const mapState = (state) => ({

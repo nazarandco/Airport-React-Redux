@@ -1,12 +1,11 @@
 @import 'variables';
 @import './flights/components/search/search.scss';
-@import './flights/components/arrivals/arrivals.scss';
-@import './flights/components/departures/departures.scss';
 @import './flights/components/flight/flight.scss';
 @import './flights/components/header/header.scss';
 @import './flights/components/info/info.scss';
 @import './flights/components/noFlights/noFlights.scss';
 @import './flights/components/scoreboard/scoreboard.scss';
+@import './flights/components/direction/direction.scss';
 
 * {
   box-sizing: border-box;

@@ -1,4 +1,4 @@
-.departures {
+.direction {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -12,16 +12,19 @@
     border-color: $buttons-border-color;
   }
 
-  &__btn {
+  &__common-for-btn {
     position: absolute;
     height: 80px;
+    display: flex;
+    border-radius: 70px 70px 0 0 !important;
+    border: none;
+  }
+
+  &__d-act-btn {
     justify-content: flex-end;
     width: 50%;
-    display: flex;
     align-items: center;
-    border: none;
     background-color: $white-color;
-    border-radius: 70px 70px 0 0 !important;
     z-index: 1;
 
     &:hover {
@@ -43,16 +46,67 @@
     }
   }
 
-  &__arrivals-btn {
-    position: absolute;
-    display: flex;
+  &__d-pass-btn {
     align-items: center;
-    padding-left: 53%;
-    height: 80px;
-    border: none;
     width: 100%;
     background-color: $light-blue-color;
-    border-radius: 70px 70px 0 0 !important;
+    z-index: 0;
+    transition: background-color 0.3s;
+
+    &:hover {
+      transition-timing-function: ease-in-out;
+      background-color: $blue-color;
+      cursor: pointer;
+    }
+
+    &-icon {
+      transform: rotate(-20deg);
+      color: $white-color;
+      font-size: 2em;
+      margin: 0 0 0 20%;
+    }
+
+    &-title {
+      justify-content: flex-start;
+      margin: 0 0 0 30px;
+      font-size: 2em;
+      font-weight: 400;
+      color: $white-color;
+    }
+  }
+
+  &__a-act-btn {
+    margin-left: 50%;
+    justify-content: center;
+    width: 50%;
+    align-items: center;
+    background-color: $white-color;
+    z-index: 1;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &-icon {
+      transform: rotate(20deg);
+      color: $blue-color;
+      font-size: 2em;
+      margin: 0 30px 0 0;
+    }
+
+    &-title {
+      margin: 0 20% 0 0;
+      font-size: 2em;
+      font-weight: 400;
+      color: $blue-color;
+    }
+  }
+
+  &__a-pass-btn {
+    align-items: center;
+    padding-left: 53%;
+    width: 100%;
+    background-color: $light-blue-color;
     z-index: 0;
     transition: background-color 0.3s;
 

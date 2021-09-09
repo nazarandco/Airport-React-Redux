@@ -1,14 +1,12 @@
 import {
   LIST_RECIEVED,
   UPDATE_FILTER,
-  TOGGLE_FLIGHT_DIRECTION,
   UPDATE_SEARCH_DATA,
 } from './flights.actions';
 
 const initialState = {
   flightsList: [],
   filterText: '',
-  flightDirection: 'departures',
   searchData: null,
 };
 
@@ -25,13 +23,6 @@ const flightsReducer = (state = initialState, action) => {
       return {
         ...state,
         filterText: newFilterText,
-      };
-    }
-    case TOGGLE_FLIGHT_DIRECTION: {
-      const { newFlightDirection } = action.payload;
-      return {
-        ...state,
-        flightDirection: newFlightDirection,
       };
     }
     case UPDATE_SEARCH_DATA: {

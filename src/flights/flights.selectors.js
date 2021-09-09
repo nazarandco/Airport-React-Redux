@@ -9,8 +9,6 @@ export const departureFlightsListSelector = (state) =>
 
 export const filterTextSelector = (state) => state.flights.filterText;
 
-export const flightDirectionSelector = (state) => state.flights.flightDirection;
-
 export const searchDataSelector = (state) => state.flights.searchData;
 
 export const todayDepartureFlightsListSelector = createSelector(
